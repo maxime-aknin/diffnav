@@ -121,7 +121,8 @@ func diff(file *gitdiff.File, width int) tea.Cmd {
 		return nil
 	}
 	return func() tea.Msg {
-		sideBySide := !file.IsNew && !file.IsDelete
+		// sideBySide := !file.IsNew && !file.IsDelete
+		sideBySide := false
 		args := []string{"--paging=never", fmt.Sprintf("-w=%d", width)}
 		if sideBySide {
 			args = append(args, "--side-by-side")
